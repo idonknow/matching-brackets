@@ -1,5 +1,5 @@
+/*this is a head file about some basic operations of SqStack*/
 #include<malloc.h>
-
 #define Elemtype char
 #define StackSize 33
 
