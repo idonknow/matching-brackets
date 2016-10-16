@@ -1,3 +1,5 @@
+/*author: weiguoqiang */
+
 #include<stdio.h>
 #include<string.h>
 #include"sqstack.h"
@@ -62,7 +64,7 @@ void bracket_match(char br[])
 					Push(s, br[i]);
 				else    //the priority is wrong
 				{
-					printf("ERROR:Î»ÖÃ %d ´¦µÄ %c ÓÅÏÈ¼¶´óÓÚÆäÇ°Õß£¡\n", i + 1, br[i]);
+					printf("ERROR:ä½ç½® %d å¤„çš„ %c ä¼˜å…ˆçº§å¤§äºå…¶å‰è€…ï¼\n", i + 1, br[i]);
 					return;
 				}
 			} 
@@ -72,12 +74,12 @@ void bracket_match(char br[])
 			{
 				if (!Pop(s, temp))    //lack a left bracket
 				{
-					printf("ERROR:Î»ÖÃ %d ´¦µÄ %c È±ÉÙÓëÆä¶ÔÓ¦µÄ×óÀ¨ºÅ£¡\n", i + 1, br[i]);
+					printf("ERROR:ä½ç½® %d å¤„çš„ %c ç¼ºå°‘ä¸å…¶å¯¹åº”çš„å·¦æ‹¬å·ï¼\n", i + 1, br[i]);
 					return;
 				}
 				if (!match(temp, br[i]))    //no matching
 				{
-					printf("ERROR:Î»ÖÃ %d ´¦µÄ %c ºÍÓëÆä¶ÔÓ¦µÄ×óÀ¨ºÅ²»Æ¥Åä£¡\n", i + 1, br[i]);
+					printf("ERROR:ä½ç½® %d å¤„çš„ %c å’Œä¸å…¶å¯¹åº”çš„å·¦æ‹¬å·ä¸åŒ¹é…ï¼\n", i + 1, br[i]);
 					return;
 				}
 			}
@@ -92,11 +94,11 @@ void bracket_match(char br[])
 			i++;
 		}
 		j = GetTop(s, temp);
-		printf("ERROR:Î»ÖÃ %d ´¦ %c È±ÉÙ¶ÔÓ¦µÄÓÒÀ¨ºÅ£¡\n", i, temp);
+		printf("ERROR:ä½ç½® %d å¤„ %c ç¼ºå°‘å¯¹åº”çš„å³æ‹¬å·ï¼\n", i, temp);
 		return;
 	}
 	else
-		printf("À¨ºÅÍêÈ«Æ¥Åä!\n");
+		printf("æ‹¬å·å®Œå…¨åŒ¹é…!\n");
 }
 
 int main()
@@ -107,7 +109,7 @@ int main()
 	fp = fopen("test.txt", "r");
 	for (int i = 0; fgets(bracket, 100, fp); i++)
 	{
-		printf("µÚ %d ĞĞÎª£º%s", i+1, bracket);
+		printf("ç¬¬ %d è¡Œä¸ºï¼š%s", i+1, bracket);
 		bracket_match(bracket);
 		printf("\n");
 	}
